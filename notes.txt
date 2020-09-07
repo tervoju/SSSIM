@@ -1,0 +1,47 @@
+
+debug notes
+-----------
+open terminal run env
+open terminal run base
+
+open terminal run float(s)
+
+open terminal run gui
+
+
+what info has to be collected:
+    - time stamp + GPS (base talk state)    - done
+    - time stamp + depth                done
+    - sea flow
+    - time stamp + ping messages    done
+    - time stamp + other float messages done
+
+
+collect 
+    all positions                                       done
+    all pings                                           done
+    all gps positions from other floats (if possible)   done and estimates
+
+    
+estimate position
+    - kalman based on previous positions?               not working
+    - pings based on estimated positions?               done
+
+calculate estimates with integrated kalman
+- branch?
+- precomms 
+
+
+ins sssim.h
+// rough linearisation, with origo at 58.5N 21.0E, valid in the Gulf of Finland
+// based on lat-long <-> UTM correspondances in grid squares 34V & 35V
+#define METERS_0_IN_DEGREES_EAST 21.0
+#define METERS_0_IN_DEGREES_NORTH 58.5
+#define METERS_PER_DEGREE_EAST 56200.0
+#define METERS_PER_DEGREE_NORTH 110900.0
+
+env.cpp
+	const simtime_t env_end_time = sea->min.t + SEA_NT * sea->step.t/4;
+
+
+cp ./logs/latest/ ../../sssim_python/latest/

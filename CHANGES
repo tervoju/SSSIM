@@ -1,0 +1,16 @@
+0.5
+  kalman filter
+  logging changes and additions
+
+0.4
+  First public release
+
+0.3
+  Reworked time-delayed process modelling, moving queue from server to clients
+
+0.2
+  Redesigned time model, removing dependency on real time
+
+0.1
+  First working system
+

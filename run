@@ -1,0 +1,24 @@
+#!/bin/bash
+
+#echo; date; echo $0
+
+gnome-terminal --geometry=80x29-0+0 -- ./bin/env 0
+#gnome-terminal --geometry=80x29+0+0 -x gdb -q -x scripts/gdb-run --args ./bin/env 0
+
+sleep 0.5
+gnome-terminal --geometry=80x29-0-0 -- ./bin/base
+
+sleep 0.5
+gnome-terminal --geometry=80x29+0+0 -- ./bin/float 1004
+gnome-terminal --geometry=80x29+0-0 -- ./bin/float 1005
+gnome-terminal --geometry=80x29+600+0 -- ./bin/float 1006
+gnome-terminal --geometry=80x29+600-0 -- ./bin/float 1007
+gnome-terminal --geometry=80x29+1250+0 -- ./bin/float 1008
+gnome-terminal --geometry=80x29+1250-0 -- ./bin/float 1009
+#gnome-terminal --geometry=80x29+600+0 -x gdb -q -x scripts/gdb-run --args ./bin/float 1005
+#gnome-terminal --geometry=80x29+600-0 -x gdb -q -x scripts/gdb-run --args ./bin/float 1006
+
+sleep 0.5
+#./bin/cli start
+#gnome-terminal --geometry=20x6-0+0 -x ./scripts/gtk-ctrl.sh &
+nice -n1 ./bin/gui -geometry 600x470-0+0 &
